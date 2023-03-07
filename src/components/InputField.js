@@ -1,17 +1,14 @@
-import React ,{useRef,useState,useEffect} from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import '../styles/App.css';
 
 //complete the following using forward refs concept 
 
-const InputField=React.forwardRef((prop, ref)=>{
+const InputField = (props, ref) => {
 
-  const shivAni=(event)=>{
-    prop.setValue(event.target.value);
-  }
-    return(
+  return (
     <div>
-      <input id="input" type="text"  value={undefined} ref={ref} onChange={shivAni}/>
+      <input id="input" type="text" ref={ref} />
     </div>
-    )
-    })
-export default InputField;
+  )
+}
+export default React.forwardRef(InputField);
