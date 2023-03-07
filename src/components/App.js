@@ -3,26 +3,26 @@ import '../styles/App.css';
 import InputField from './InputField.js';
 const App = () => {
 
-  const [value2, setValue2] = useState("");
-  const [value, setValue] = useState("");
-  const newRef = useRef(null);
+  const newRef = useRef()
+  const [values, setValues] = useState()
+  function settingValue() {
 
-  const settingValue = () => {
-    setValue2(value);
-    setValue("");
-  }
-  const focusInput = (event) => {
-    newRef.current.focus();
-  }
-  const handle = () => { }
+    setValues(newRef.current.value)
 
+    console.log(newRef.current.value)
+  }
+  
+  function focusInput() {
+
+    newRef.current.focus()
+  }
 
   return (
     <div>
-      <InputField ref={newRef} type="text" value={value} setValue={setValue} /><br />
+      <InputField ref={newRef} type="text" /><br />
       <button id="settingValueButton" onClick={settingValue}>Set Value</button>
       <button id="focusInputButton" onClick={focusInput}>Focus the input</button><br /><br />
-      <textarea id="textarea" value={value2} onChange={handle}  ></textarea>
+      <textarea id="textarea" value={values} ></textarea>
 
     </div>
   );
